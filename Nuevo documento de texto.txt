@@ -1,0 +1,59 @@
+database = [
+    {"name":"Luffy", "human":True, "sombrero":True, "fruta":True , "arma":False, "genero":True, "cicatrices":True},
+
+    {"name": "Nami", "human": True, "sombrero": False, "fruta": False, "arma": True, "genero": False,"cicatrices": False},
+
+    {"name": "Zoro", "human": True, "sombrero": False, "fruta": False, "arma": True, "genero": True,"cicatrices": True},
+
+    {"name": "Chopper", "human": False, "sombrero": True, "fruta": True, "arma": False, "genero": True,"cicatrices": False},
+
+    {"name": "Sanji", "human": True, "sombrero": False, "fruta": False, "arma": False, "genero": True,"cicatrices": False},
+
+    {"name": "franky", "human": False, "sombrero": False, "fruta": False, "arma": True, "genero": True,"cicatrices": True},
+
+    {"name": "Usopp", "human": True, "sombrero": True, "fruta": False, "arma": True, "genero": True,"cicatrices": False},
+
+    {"name": "Robin", "human": True, "sombrero": False, "fruta": True, "arma": False, "genero": False,"cicatrices": False},
+
+    {"name": "Brook", "human": False, "sombrero": True, "fruta": True, "arma": True, "genero": True,"cicatrices": False},
+
+
+]
+
+def take_chance(answer, property):
+    if answer == "y":
+        ans = True
+    else:
+        ans = False
+
+    to_remove=[]
+    for d in database:
+        if d[property] != ans:
+            to_remove.append(d)
+
+    for i in to_remove:
+        database.remove(i)
+
+    if len(database) == 1:
+        print("tu personaje es "+database[0]["name"])
+        quit()
+
+
+ans = input("tu personaje es humano(y,n)")
+take_chance(ans, "human")
+
+
+ans = input("tu personaje usa sombrero(y,n)")
+take_chance(ans, "sombrero")
+
+ans = input("tu personaje comio fruta del diablo(y,n)")
+take_chance(ans,"fruta")
+
+ans = input("tu personaje usa armas(y,n)")
+take_chance(ans,"arma")
+
+ans = input("tu personaje es hombre(y,n)")
+take_chance(ans,"genero")
+
+ans = input("tu personaje tiene cicatrices(y,n)")
+take_chance(ans,"cicatrices")
